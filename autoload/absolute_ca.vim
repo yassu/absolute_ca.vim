@@ -12,10 +12,10 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 function! absolute_ca#get_now_num()
-  " [数値, 数値のpos]を取得する.
+  " 数値を取得する.
   " カーソル下に整数があることは仮定する.
   let pos = [getpos('.')[1], getpos('.')[2]]
-  return getline('.')[col('.') - 1] " TODO: 2文字以上の数値にも対応する.
+  return getline('.')[col('.') - 1:] " TODO: 2文字以上の数値にも対応する.
 endfunction
 
 function! absolute_ca#move_to_num()
