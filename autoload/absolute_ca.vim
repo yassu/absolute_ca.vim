@@ -1,4 +1,4 @@
-" <c-a> or <c-x> by using absolute value
+" command like <c-a> or <c-x> by using absolute value
 " version: 0.1
 " Author: yassu
 " License: Apache 2.0
