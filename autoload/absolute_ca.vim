@@ -24,7 +24,7 @@ function! absolute_ca#move_to_num()
   " else return -1
   let lnum = getpos('.')[1]
   let col = getpos('.')[2]
-  let num_col = match(getline('.')[col - 1:], "\\d") " TODO: 符号を考慮する
+  let num_col = match(getline('.')[col - 1:], "[+-]\\?\\d")
 
   if num_col == -1
     return -1
