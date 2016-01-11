@@ -2,7 +2,9 @@ absolute_ca.vim
 =================
 
 version: 0.1
+
 Author : yassu
+
 License: Apache 2.0
 
 This plugin provides function like `<c-a>` and `<c-x>` by only using absolute value.
