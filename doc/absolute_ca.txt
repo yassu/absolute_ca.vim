@@ -1,0 +1,58 @@
+* absolute_ca.txt *   command like <c-a> or <c-x> by using only absolute value
+
+Version: 0.1
+Author : yassu
+License: Apache License 2.0
+
+
+
+==============================================================================
+
+table of contents    * absolute_ca-contents *
+
+Introduction       | absolute_ca-introduction |
+Functions          | absolute_ca-functions    |
+Example of Setting | absolute_ca-setting      |
+
+
+
+==============================================================================
+Introduction       * absolute_ca-introduction *
+
+* absolute_ca.vim * provides two functions like <c-a> and <c-x>.
+However, their functions uses only absolute value of numbers.
+
+For example,
+
+2016-01-1|1
+
+where | is your position.
+Then, when you call * absolute_ca#increment *, you have
+
+2016-01-1|2
+
+
+
+==============================================================================
+Functions          * absolute_ca-functions    *
+
+absolute_ca#increment() * absolute_ca#increment *
+
+                Jump to number and increment number under the cursor by using
+                only absolute number.
+
+
+absolute_ca#decrement() * absolute_ca#decrement *
+                Jump to number and Decrement number under the cursor by using
+                only absolute number.
+                If number under the cursor is 0, put 0.
+
+
+
+==============================================================================
+Example of Setting | absolute_ca-setting      |
+
+If you want to use this plugin instead of <c-a> and <c-x> function,
+
+nnoremap <c-a> :call absolute_ca#increment()<cr>
+nnoremap <c-x> :call absolute_ca#decrement()<cr>
