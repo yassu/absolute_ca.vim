@@ -3,10 +3,10 @@
 " Author: yassu
 " License: Apache 2.0
 
-" if exists('g:loaded_absoluteca')
-"   finish
-" endif
-" let g:loaded_absoluteca = 1
+if exists('g:loaded_absoluteca')
+  finish
+endif
+let g:loaded_absoluteca = 1
 
 let s:save_cpo = &cpo
 set cpo&vim
