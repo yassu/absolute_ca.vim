@@ -60,7 +60,7 @@ function! absolute_ca#decrement()
 
   let n = matchlist(getline('.')[col('.') - 1:], "\\d\\+")[0]
 
-  " substitute n to n + 1
+  " substitute n to n - 1
   let val = (n == 0)? 0: n - 1
   let line = getline('.')
   call setline(line('.'), line[:col('.') - 1 - 1] .
