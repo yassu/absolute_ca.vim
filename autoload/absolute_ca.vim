@@ -1,5 +1,5 @@
 " <c-a> or <c-x> by using absolute value
-" version: 0.0
+" version: 0.1
 " Author: yassu
 " License: Apache 2.0
 
@@ -11,14 +11,7 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
-function! absolute_ca#get_now_num()
-  " 数値を取得する.
-  " カーソル下に整数があることは仮定する.
-  let pos = [getpos('.')[1], getpos('.')[2]]
-  return getline('.')[col('.') - 1:]
-endfunction
-
-function! absolute_ca#move_to_num()
+function! s:move_to_num()
   " move to position which entered number
   " if there is number and succeed to move, return 1
   " else return -1
@@ -37,7 +30,7 @@ function! absolute_ca#move_to_num()
 endfunction
 
 function! absolute_ca#increment()
-  let move_status = absolute_ca#move_to_num()
+  let move_status = s:move_to_num()
 
   if move_status ==  -1
     return
@@ -52,7 +45,7 @@ function! absolute_ca#increment()
 endfunction
 
 function! absolute_ca#decrement()
-  let move_status = absolute_ca#move_to_num()
+  let move_status = s:move_to_num()
 
   if move_status ==  -1
     return
