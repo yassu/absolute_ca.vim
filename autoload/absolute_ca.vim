@@ -15,7 +15,7 @@ function! absolute_ca#get_now_num()
   " 数値を取得する.
   " カーソル下に整数があることは仮定する.
   let pos = [getpos('.')[1], getpos('.')[2]]
-  return getline('.')[col('.') - 1:] " TODO: 2文字以上の数値にも対応する.
+  return getline('.')[col('.') - 1:]
 endfunction
 
 function! absolute_ca#move_to_num()
@@ -43,7 +43,7 @@ function! absolute_ca#increment()
     return
   endif
 
-  let n = getline('.')[col('.') - 1]
+  let n = matchlist(getline('.')[col('.') - 1:], "\\d\\+")[0]
 
   " substitute n to n + 1
   let line = getline('.')
@@ -58,7 +58,7 @@ function! absolute_ca#decrement()
     return
   endif
 
-  let n = getline('.')[col('.') - 1]
+  let n = matchlist(getline('.')[col('.') - 1:], "\\d\\+")[0]
 
   " substitute n to n + 1
   let val = (n == 0)? 0: n - 1
