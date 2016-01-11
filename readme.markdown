@@ -7,7 +7,7 @@ Author : yassu
 
 License: Apache 2.0
 
-This plugin provides function like `<c-a>` and `<c-x>` by only using absolute value.
+This plugin provides two functions like `<c-a>` and `<c-x>` by only using absolute value.
 For example,
 
 ```
