@@ -36,12 +36,14 @@ function! absolute_ca#increment()
     return
   endif
 
-  let n = matchlist(getline('.')[col('.') - 1:], "\\d\\+")[0]
+  let n = str2nr(matchlist(getline('.')[col('.') - 1:], "\\d\\+")[0])
+  let l = len(n)
+  let val = printf("%0" . l . "d", n + 1)
 
   " substitute n to n + 1
   let line = getline('.')
   call setline(line('.'), line[:col('.') - 1 - 1] .
-    \ substitute(line[col('.') - 1:], n, n + 1, ""))
+    \ substitute(line[col('.') - 1:], n, val, ""))
 endfunction
 
 function! absolute_ca#decrement()
@@ -51,10 +53,12 @@ function! absolute_ca#decrement()
     return
   endif
 
-  let n = matchlist(getline('.')[col('.') - 1:], "\\d\\+")[0]
+  let n = str2nr(matchlist(getline('.')[col('.') - 1:], "\\d\\+")[0])
+  let l = len(n)
 
   " substitute n to n - 1
   let val = (n == 0)? 0: n - 1
+  let val = printf("%0" . l . "d", val)
   let line = getline('.')
   call setline(line('.'), line[:col('.') - 1 - 1] .
     \ substitute(line[col('.') - 1:], n, val, ""))
