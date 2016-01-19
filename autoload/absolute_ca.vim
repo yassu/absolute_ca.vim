@@ -3,10 +3,10 @@
 " Author: yassu
 " License: Apache 2.0
 
-if exists('g:loaded_absoluteca')
-  finish
-endif
-let g:loaded_absoluteca = 1
+" if exists('g:loaded_absoluteca')
+"   finish
+" endif
+" let g:loaded_absoluteca = 1
 
 let s:save_cpo = &cpo
 set cpo&vim
@@ -37,10 +37,10 @@ function! absolute_ca#increment()
   endif
 
   let n = str2nr(matchlist(getline('.')[col('.') - 1:], "\\d\\+")[0])
-  let val = printf("%0" . len(n) . "d", n + 1)
+  let val = n
 
-  " substitute n to n + 1
   let line = getline('.')
+  let val = printf("%0" . len(n) . "d", val + v:count1)
   call setline(line('.'), line[:col('.') - 1 - 1] .
     \ substitute(line[col('.') - 1:], n, val, ""))
 endfunction
@@ -56,7 +56,7 @@ function! absolute_ca#decrement()
   let l = len(n)
 
   " substitute n to n - 1
-  let val = (n == 0)? 0: n - 1
+  let val = (n < v:count1)? 0: n - v:count1
   let val = printf("%0" . len(n) . "d", val)
   let line = getline('.')
   call setline(line('.'), line[:col('.') - 1 - 1] .
