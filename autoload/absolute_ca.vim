@@ -3,30 +3,30 @@
 " Author: yassu
 " License: Apache 2.0
 
-" if exists('g:loaded_absoluteca')
-"   finish
-" endif
-" let g:loaded_absoluteca = 1
+if exists('g:loaded_absoluteca')
+  finish
+endif
+let g:loaded_absoluteca = 1
 
 let s:save_cpo = &cpo
 set cpo&vim
 
-function! g:get_num()
-  " return list of string of number and col of starting of number
-  let col = col('.')
-  let line = getline('.')
-  let n = matchlist(line[col - 1:], "\\d\\+")[0]
-  while col > 0
-    let col -= 1
-    if index(["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"], line[col - 1]) != -1
-        " TODO: index(...)ではなく正規表現にした方が早い?
-      let n = line[col - 1] . n
-    else
-      return [n, col + 1]
-    endif
-  endwhile
-  return [n, col - 1]
-endfunction
+" function! g:get_num()
+"   " return list of string of number and col of starting of number
+"   let col = col('.')
+"   let line = getline('.')
+"   let n = matchlist(line[col - 1:], "\\d\\+")[0]
+"   while col > 0
+"     let col -= 1
+"     if index(["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"], line[col - 1]) != -1
+"         " TODO: index(...)ではなく正規表現にした方が早い?
+"       let n = line[col - 1] . n
+"     else
+"       return [n, col + 1]
+"     endif
+"   endwhile
+"   return [n, col - 1]
+" endfunction
 
 function! s:move_to_num()
   " move to position which entered number
